@@ -1,12 +1,11 @@
 # Akan Recorder
-Backend service for recording Akan speech to gather data
+Backend service for Crowdfunding
 
 ## Setup
 
 ### Prerequisites
 
-- Python 3.10+
-- PostgreSQL
+- Python 3.11.0
 - Virtual Environment (optional but recommended)
 
 ### Installation
@@ -14,8 +13,8 @@ Backend service for recording Akan speech to gather data
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/Akan-ASR-for-Health/akan-recorder-backend
-    cd akan-recorder-backend
+    git clone https://github.com/KAsare1/crowdfunding_backend.git
+    cd crowdfunding_backend
     ```
 
 2. **Create and activate a virtual environment:**
@@ -23,6 +22,13 @@ Backend service for recording Akan speech to gather data
     ```sh
     python -m venv .venv
     source .venv/bin/activate
+    ```
+    OR...
+    
+    ```sh
+    cd .venv/bin
+    activate
+    cd ../..
     ```
 
 3. **Install the dependencies:**
@@ -36,35 +42,12 @@ Backend service for recording Akan speech to gather data
     Create a `.env` file in the root directory and add the following variables:
 
     ```env
-    POSTGRES_USER=your_postgres_user
-    POSTGRES_PASSWORD=your_postgres_password
-    POSTGRES_SERVER=localhost
-    POSTGRES_PORT=5432
-    POSTGRES_DB=your_database_name
-    SECRET=your_secret_key
-    SMTP_SERVER=smtp.gmail.com
-    SMTP_PORT=587
-    EMAIL_USERNAME=your_email@example.com
-    EMAIL_PASSWORD=your_email_password
-    ```
-
-### Setting up PostgreSQL Database
-
-1. **Start PostgreSQL server:**
-
-    Ensure that your PostgreSQL server is running.
-
-2. **Create a new database:**
-
-    ```sh
-    psql -U postgres
-    CREATE DATABASE your_database_name;
-    ```
-
-3. **Update the database URL in the `.env` file:**
-
-    ```env
-    DATABASE_URL=postgresql://your_postgres_user:your_postgres_password@localhost:5432/your_database_name
+        DB_URL=
+        SECRET_KEY=
+        REFRESH_KEY=
+        REFRESH_EXPIRES=9000
+        ACCESS_EXPIRES=7200
+        ALGORITHM=HS256
     ```
 
 ### Running the Application
@@ -72,7 +55,7 @@ Backend service for recording Akan speech to gather data
 1. **Run the FastAPI application:**
 
     ```sh
-    fastapi dev src/main.py
+    uvicorn src.main:app --host 127.0.0.1 --port 8080
     ```
 
 2. **Access the API documentation:**
