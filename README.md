@@ -1,4 +1,4 @@
-# Akan Recorder
+# Crowdfunding Backend
 Backend service for Crowdfunding
 
 ## Setup
@@ -24,7 +24,7 @@ Backend service for Crowdfunding
     source .venv/bin/activate
     ```
     OR...
-    
+
     ```sh
     cd .venv/bin
     activate
