@@ -5,13 +5,13 @@ from passlib.context import CryptContext
 from src.db.users import User
 from src.db.db import get_db
 from src.models.user import UserCreate, UserResponse, Token
-from src.core.config import Settings
+from src.core.config import settings
 from src.utils.oauth2 import create_access_token, get_current_user, verify_token, create_refresh_token
 
 # Constants
-SECRET_KEY = Settings.SECRET_KEY  # Replace with a secure key
-ALGORITHM = Settings.ALGORITHM
-ACCESS_TOKEN_EXPIRE_MINUTES = Settings.ACCESS_EXPIRES
+SECRET_KEY = settings.SECRET_KEY  # Replace with a secure key
+ALGORITHM = settings.ALGORITHM
+ACCESS_TOKEN_EXPIRE_MINUTES = settings.ACCESS_EXPIRES
 
 # Dependencies
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

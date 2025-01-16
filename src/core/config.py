@@ -14,4 +14,4 @@ class Settings:
     ALGORITHM = os.getenv("ALGORITHM")
     
 
-
+settings = Settings()

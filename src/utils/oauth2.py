@@ -3,17 +3,17 @@ from jose import JWTError, jwt
 from fastapi import status, HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from src.core.config import Settings
+from src.core.config import settings
 from src.db.db import get_db
 from src.db.users import User
 from src.models.user import TokenData
 
 oauth2_schema = OAuth2PasswordBearer(tokenUrl="users/login")
 
-SECRET_KEY = Settings.SECRET_KEY
-ALGORITHM = Settings.ALGORITHM
-ACCESS_TOKEN_EXPIRE_MINUTES = int(Settings.ACCESS_EXPIRES)
-REFRESH_TOKEN_EXPIRE_DAYS = int(Settings.REFRESH_EXPIRES)
+SECRET_KEY = settings.SECRET_KEY
+ALGORITHM = settings.ALGORITHM
+ACCESS_TOKEN_EXPIRE_MINUTES = int(settings.ACCESS_EXPIRES)
+REFRESH_TOKEN_EXPIRE_DAYS = int(settings.REFRESH_EXPIRES)
 
 
 credentials_exception = HTTPException(
