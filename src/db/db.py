@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from src.core.config import settings
 
 load_dotenv()
-SQLALCHEMY_DATABASE_URL = settings.DB_URL
+SQLALCHEMY_DATABASE_URL = os.getenv("DB_URL")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
